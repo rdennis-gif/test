@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Source-to-Pay Landscape | Enterprise Manufacturing</title>
+    <title>Source-to-Pay Intelligence Hub | Enterprise Manufacturing</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,158 +14,118 @@
   </head>
   <body>
     <header class="site-header">
-      <div class="container">
-        <p class="eyebrow">CMO Strategic Brief</p>
-        <h1>The Source-to-Pay Landscape for Enterprise Manufacturing</h1>
-        <p class="subtitle">
-          A strategic guide to procurement workflows, buyer pain points, and how
-          Jaggaer competes in the $1B+ manufacturing space.
-        </p>
-        <a href="#landscape" class="cta">Explore the landscape</a>
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">CMO Strategic Brief</p>
+          <h1>The Source-to-Pay Landscape for Enterprise Manufacturing</h1>
+          <p class="subtitle">
+            Interactive chapters, benchmark data, and narrative guidance for
+            positioning procurement transformation in a $1B+ manufacturing context.
+          </p>
+          <div class="hero-actions">
+            <a href="#chapter-nav" class="cta">Start guided chapter tour</a>
+            <button id="open-summary" class="cta secondary">Export chapter summary</button>
+          </div>
+        </div>
+        <aside class="hero-callout">
+          <h2>What changed</h2>
+          <ul>
+            <li>Chapter-based navigation with progress tracking</li>
+            <li>Segment filters for 4 manufacturing verticals</li>
+            <li>Interactive charts for cycle time and value realization</li>
+            <li>Data-driven competitor positioning by buyer priority</li>
+          </ul>
+        </aside>
       </div>
     </header>
 
-    <main>
-      <section id="landscape" class="section">
-        <div class="container">
-          <h2>1) Source-to-Pay workflow at a glance</h2>
-          <p>
-            Source-to-Pay (S2P) in manufacturing spans strategy, sourcing,
-            contracting, ordering, receiving, invoicing, and supplier
-            performance. CMOs should map messaging to each stage so campaigns
-            feel operationally relevant.
-          </p>
-          <div class="grid cards-4">
-            <article class="card">
-              <h3>Source</h3>
-              <p>
-                Category analysis, supplier discovery, RFX orchestration, and
-                risk pre-screening for direct and indirect materials.
-              </p>
-            </article>
-            <article class="card">
-              <h3>Contract</h3>
-              <p>
-                Negotiation, legal redlining, obligation tracking, and pricing
-                governance across plants and regions.
-              </p>
-            </article>
-            <article class="card">
-              <h3>Procure</h3>
-              <p>
-                Guided buying, approval routing, PO automation, and receiving
-                controls that reduce maverick spend.
-              </p>
-            </article>
-            <article class="card">
-              <h3>Pay & Analyze</h3>
-              <p>
-                Invoice matching, exception handling, payments, and performance
-                dashboards for supplier, risk, and spend outcomes.
-              </p>
-            </article>
-          </div>
+    <main class="container">
+      <nav id="chapter-nav" class="chapter-nav" aria-label="Content chapters">
+        <button class="chapter-link active" data-chapter="overview">1. Overview</button>
+        <button class="chapter-link" data-chapter="workflow">2. Workflow</button>
+        <button class="chapter-link" data-chapter="benchmarks">3. Benchmarks</button>
+        <button class="chapter-link" data-chapter="competition">4. Competition</button>
+        <button class="chapter-link" data-chapter="playbook">5. CMO Playbook</button>
+      </nav>
+
+      <section class="toolbar card">
+        <div>
+          <label for="segment-select">Manufacturing segment</label>
+          <select id="segment-select">
+            <option value="automotive">Automotive</option>
+            <option value="aerospace">Aerospace & Defense</option>
+            <option value="electronics">Electronics</option>
+            <option value="industrial">Industrial Machinery</option>
+          </select>
+        </div>
+        <div>
+          <label for="priority-select">Primary buyer priority</label>
+          <select id="priority-select">
+            <option value="resilience">Supply resilience</option>
+            <option value="speed">Cycle-time acceleration</option>
+            <option value="savings">Savings realization</option>
+            <option value="compliance">Compliance and control</option>
+          </select>
+        </div>
+        <div class="progress-wrap">
+          <p>Chapter progress</p>
+          <div class="progress"><span id="progress-bar"></span></div>
         </div>
       </section>
 
-      <section class="section alt">
-        <div class="container">
-          <h2>2) Manufacturing customer pain points</h2>
-          <div class="grid cards-3">
-            <article class="card">
-              <h3>Supply continuity risk</h3>
-              <p>
-                Planners need early warning on geopolitical, logistics, and
-                quality disruptions before production lines are impacted.
-              </p>
-            </article>
-            <article class="card">
-              <h3>Fragmented ERP landscape</h3>
-              <p>
-                M&A and multi-plant operations create disconnected workflows,
-                making standardization and visibility difficult.
-              </p>
-            </article>
-            <article class="card">
-              <h3>Slow procurement cycle times</h3>
-              <p>
-                Manual sourcing and approvals delay launches, capex projects,
-                and response to volatile commodity pricing.
-              </p>
-            </article>
-          </div>
+      <section class="chapter active" id="chapter-overview" data-name="overview">
+        <h2>Chapter 1: Market overview and opportunity sizing</h2>
+        <p id="segment-summary"></p>
+        <div id="kpi-grid" class="grid cards-4"></div>
+      </section>
+
+      <section class="chapter" id="chapter-workflow" data-name="workflow">
+        <h2>Chapter 2: Source-to-Pay journey by stage</h2>
+        <div id="workflow-grid" class="grid cards-4"></div>
+      </section>
+
+      <section class="chapter" id="chapter-benchmarks" data-name="benchmarks">
+        <h2>Chapter 3: Benchmark trends and KPI deltas</h2>
+        <div class="chart-grid">
+          <article class="card chart-card">
+            <h3>Procurement cycle time trend (days)</h3>
+            <canvas id="cycle-chart" width="560" height="260"></canvas>
+          </article>
+          <article class="card chart-card">
+            <h3>Value realization by initiative (%)</h3>
+            <canvas id="value-chart" width="560" height="260"></canvas>
+          </article>
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
-          <h2>3) Competitive context: Jaggaer in enterprise manufacturing</h2>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Vendor</th>
-                  <th>Enterprise Manufacturing Fit</th>
-                  <th>Perceived Strength</th>
-                  <th>Common Gaps to Position Against</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Jaggaer</td>
-                  <td>High</td>
-                  <td>Deep sourcing + supplier management depth</td>
-                  <td>Complexity for mid-market teams without clear adoption plans</td>
-                </tr>
-                <tr>
-                  <td>Coupa</td>
-                  <td>High</td>
-                  <td>Strong UX and spend visibility</td>
-                  <td>Direct-material specialization may require add-ons/integration</td>
-                </tr>
-                <tr>
-                  <td>SAP Ariba</td>
-                  <td>High (SAP-led orgs)</td>
-                  <td>ERP adjacency and broad suite coverage</td>
-                  <td>Time-to-value concerns and implementation overhead</td>
-                </tr>
-                <tr>
-                  <td>Ivalua</td>
-                  <td>Medium-High</td>
-                  <td>Flexible workflow configuration</td>
-                  <td>Resource-intensive governance for heavily customized deployments</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="small-note">
-            Messaging opportunity for CMOs: position outcomes by manufacturing
-            segment (automotive, aerospace, electronics, industrial machinery)
-            and prioritize proof of resilience, speed, and compliance.
-          </p>
+      <section class="chapter" id="chapter-competition" data-name="competition">
+        <h2>Chapter 4: Competitive positioning map</h2>
+        <div class="table-wrap card">
+          <table>
+            <thead>
+              <tr>
+                <th>Vendor</th>
+                <th>Score</th>
+                <th>Best for</th>
+                <th>Positioning narrative</th>
+              </tr>
+            </thead>
+            <tbody id="competition-body"></tbody>
+          </table>
         </div>
       </section>
 
-      <section class="section alt">
-        <div class="container split">
-          <div>
-            <h2>4) Strategic narrative framework</h2>
-            <ul>
-              <li><strong>Business trigger:</strong> Margin pressure + supply risk.</li>
-              <li><strong>Operational blocker:</strong> Siloed sourcing and AP data.</li>
-              <li><strong>Capability promise:</strong> Unified S2P decisions at plant speed.</li>
-              <li><strong>Proof:</strong> Faster cycle time, fewer disruptions, better savings realization.</li>
-            </ul>
-          </div>
-          <aside class="callout">
-            <h3>CMO Checklist</h3>
-            <ol>
-              <li>Segment by procurement maturity.</li>
-              <li>Map content to Source/Contract/Procure/Pay journeys.</li>
-              <li>Activate customer evidence by sub-vertical.</li>
-              <li>Align competitive plays to top pain points.</li>
-            </ol>
-          </aside>
+      <section class="chapter" id="chapter-playbook" data-name="playbook">
+        <h2>Chapter 5: CMO activation playbook</h2>
+        <div class="split">
+          <article class="card">
+            <h3>Recommended campaign sequence</h3>
+            <ol id="playbook-list"></ol>
+          </article>
+          <article class="callout">
+            <h3>Executive summary output</h3>
+            <pre id="summary-output"></pre>
+          </article>
         </div>
       </section>
     </main>
@@ -173,10 +133,12 @@
     <footer>
       <div class="container">
         <p>
-          Prepared for marketing strategy and competitive enablement in
-          enterprise manufacturing procurement.
+          Built as an interactive strategic story for manufacturing procurement
+          and competitive go-to-market planning.
         </p>
       </div>
     </footer>
+
+    <script src="app.js"></script>
   </body>
 </html>
