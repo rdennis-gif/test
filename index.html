@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Work Calendar Usage</title>
+    <title>JAGGAER S2P Masterclass</title>
+    <meta
+      name="description"
+      content="Enterprise procurement enablement microsite with chapter-based learning paths."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,132 +17,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="hero">
-      <div class="container">
-        <p class="eyebrow">Outlook-ready concept</p>
-        <h1>Work Calendar Usage</h1>
-        <p class="subtitle">
-          See who you meet with, how often, how long, and what topics consume your week. Filter by person,
-          topic, and date range, then search attachment content to find the right file quickly.
-        </p>
-      </div>
-    </header>
-
-    <main class="container layout">
-      <section class="panel filters">
-        <h2>Filters</h2>
-        <div class="grid grid-2">
-          <label>
-            Start date
-            <input id="start-date" type="date" />
-          </label>
-          <label>
-            End date
-            <input id="end-date" type="date" />
-          </label>
-        </div>
-
-        <div class="grid grid-2">
-          <label>
-            Person
-            <input id="person-query" type="text" placeholder="e.g. Alex" />
-          </label>
-          <label>
-            Topic
-            <input id="topic-query" type="text" placeholder="e.g. Roadmap" />
-          </label>
-        </div>
-
-        <label>
-          Attachment search
-          <input
-            id="attachment-query"
-            type="text"
-            placeholder="search file name, summary, or meeting title"
-          />
-        </label>
-
-        <div class="actions">
-          <button id="clear-filters" class="btn-secondary">Clear filters</button>
-        </div>
-      </section>
-
-      <section class="stats grid grid-4" id="stats-grid"></section>
-
-      <section class="panel">
-        <h2>Meeting analytics</h2>
-        <div class="grid grid-2">
-          <article>
-            <h3>Top people by time</h3>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Person</th>
-                    <th>Meetings</th>
-                    <th>Hours</th>
-                  </tr>
-                </thead>
-                <tbody id="people-breakdown"></tbody>
-              </table>
-            </div>
-          </article>
-          <article>
-            <h3>Top topics by time</h3>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Topic</th>
-                    <th>Meetings</th>
-                    <th>Hours</th>
-                  </tr>
-                </thead>
-                <tbody id="topic-breakdown"></tbody>
-              </table>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="panel">
-        <h2>Meetings</h2>
-        <p id="meetings-count" class="meta"></p>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Meeting</th>
-                <th>People</th>
-                <th>Topics</th>
-                <th>Duration</th>
-              </tr>
-            </thead>
-            <tbody id="meetings-body"></tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="panel">
-        <h2>Attachments</h2>
-        <p id="attachments-count" class="meta"></p>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>File</th>
-                <th>Meeting</th>
-                <th>Date</th>
-                <th>Keywords</th>
-              </tr>
-            </thead>
-            <tbody id="attachments-body"></tbody>
-          </table>
-        </div>
-      </section>
-    </main>
-
+    <div id="app"></div>
     <script src="app.js"></script>
   </body>
 </html>
