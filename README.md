@@ -1,40 +1,26 @@
-# Source-to-Pay Landscape Web App
+# Work Calendar Usage App
 
-This repository contains a static web app (`index.html` + `styles.css`) that can be published as a shareable URL using **GitHub Pages**.
+A static web app for analyzing calendar usage, designed for Outlook workflows.
 
-## Shareable URL (after enabling Pages)
+## What it shows
 
-Once deployed from the `main` branch, your public URL will be:
+- Who you meet with most frequently and for the most time.
+- How many meetings you have and total meeting hours in a filtered period.
+- What topics consume the most time.
+- Meetings filtered by person, topic, and date range.
+- Meeting attachments with keyword search against file name/summary and meeting topic/title.
 
-- `https://<your-github-username>.github.io/<repo-name>/`
-
-If this repository is named `<your-github-username>.github.io`, your URL will be:
-
-- `https://<your-github-username>.github.io/`
-
-## One-time setup in GitHub
-
-1. Push this repo to GitHub.
-2. Go to **Settings → Pages**.
-3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-4. Ensure your default branch is `main` (the deployment workflow runs on pushes to `main`).
-5. Push to `main` to trigger deployment.
-
-## Local preview
-
-Run:
+## Local run
 
 ```bash
 python -m http.server 8000 --bind 127.0.0.1
 ```
 
-Then open:
+Open:
 
 - `http://127.0.0.1:8000/`
 
-## Download bundles for GitHub web upload
+## Notes about Outlook integration
 
-Prepared bundles are available in `download/`:
-
-- `download/website-only.zip` → just `index.html` + `styles.css`
-- `download/source-to-pay-site.zip` → site files + Pages workflow + README
+This version is a front-end prototype using seeded meeting data in `app.js`.
+To use real Outlook data, replace the sample data source with Graph API-backed meeting + attachment data.

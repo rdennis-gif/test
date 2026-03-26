@@ -3,141 +3,141 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Source-to-Pay Intelligence Hub | Enterprise Manufacturing</title>
+    <title>Work Calendar Usage</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <div class="container hero-grid">
-        <div>
-          <p class="eyebrow">CMO Strategic Brief</p>
-          <h1>The Source-to-Pay Landscape for Enterprise Manufacturing</h1>
-          <p class="subtitle">
-            Interactive chapters, benchmark data, and narrative guidance for
-            positioning procurement transformation in a $1B+ manufacturing context.
-          </p>
-          <div class="hero-actions">
-            <a href="#chapter-nav" class="cta">Start guided chapter tour</a>
-            <button id="open-summary" class="cta secondary">Export chapter summary</button>
-          </div>
-        </div>
-        <aside class="hero-callout">
-          <h2>What changed</h2>
-          <ul>
-            <li>Chapter-based navigation with progress tracking</li>
-            <li>Segment filters for 4 manufacturing verticals</li>
-            <li>Interactive charts for cycle time and value realization</li>
-            <li>Data-driven competitor positioning by buyer priority</li>
-          </ul>
-        </aside>
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow">Outlook-ready concept</p>
+        <h1>Work Calendar Usage</h1>
+        <p class="subtitle">
+          See who you meet with, how often, how long, and what topics consume your week. Filter by person,
+          topic, and date range, then search attachment content to find the right file quickly.
+        </p>
       </div>
     </header>
 
-    <main class="container">
-      <nav id="chapter-nav" class="chapter-nav" aria-label="Content chapters">
-        <button class="chapter-link active" data-chapter="overview">1. Overview</button>
-        <button class="chapter-link" data-chapter="workflow">2. Workflow</button>
-        <button class="chapter-link" data-chapter="benchmarks">3. Benchmarks</button>
-        <button class="chapter-link" data-chapter="competition">4. Competition</button>
-        <button class="chapter-link" data-chapter="playbook">5. CMO Playbook</button>
-      </nav>
+    <main class="container layout">
+      <section class="panel filters">
+        <h2>Filters</h2>
+        <div class="grid grid-2">
+          <label>
+            Start date
+            <input id="start-date" type="date" />
+          </label>
+          <label>
+            End date
+            <input id="end-date" type="date" />
+          </label>
+        </div>
 
-      <section class="toolbar card">
-        <div>
-          <label for="segment-select">Manufacturing segment</label>
-          <select id="segment-select">
-            <option value="automotive">Automotive</option>
-            <option value="aerospace">Aerospace & Defense</option>
-            <option value="electronics">Electronics</option>
-            <option value="industrial">Industrial Machinery</option>
-          </select>
+        <div class="grid grid-2">
+          <label>
+            Person
+            <input id="person-query" type="text" placeholder="e.g. Alex" />
+          </label>
+          <label>
+            Topic
+            <input id="topic-query" type="text" placeholder="e.g. Roadmap" />
+          </label>
         </div>
-        <div>
-          <label for="priority-select">Primary buyer priority</label>
-          <select id="priority-select">
-            <option value="resilience">Supply resilience</option>
-            <option value="speed">Cycle-time acceleration</option>
-            <option value="savings">Savings realization</option>
-            <option value="compliance">Compliance and control</option>
-          </select>
-        </div>
-        <div class="progress-wrap">
-          <p>Chapter progress</p>
-          <div class="progress"><span id="progress-bar"></span></div>
+
+        <label>
+          Attachment search
+          <input
+            id="attachment-query"
+            type="text"
+            placeholder="search file name, summary, or meeting title"
+          />
+        </label>
+
+        <div class="actions">
+          <button id="clear-filters" class="btn-secondary">Clear filters</button>
         </div>
       </section>
 
-      <section class="chapter active" id="chapter-overview" data-name="overview">
-        <h2>Chapter 1: Market overview and opportunity sizing</h2>
-        <p id="segment-summary"></p>
-        <div id="kpi-grid" class="grid cards-4"></div>
-      </section>
+      <section class="stats grid grid-4" id="stats-grid"></section>
 
-      <section class="chapter" id="chapter-workflow" data-name="workflow">
-        <h2>Chapter 2: Source-to-Pay journey by stage</h2>
-        <div id="workflow-grid" class="grid cards-4"></div>
-      </section>
-
-      <section class="chapter" id="chapter-benchmarks" data-name="benchmarks">
-        <h2>Chapter 3: Benchmark trends and KPI deltas</h2>
-        <div class="chart-grid">
-          <article class="card chart-card">
-            <h3>Procurement cycle time trend (days)</h3>
-            <canvas id="cycle-chart" width="560" height="260"></canvas>
+      <section class="panel">
+        <h2>Meeting analytics</h2>
+        <div class="grid grid-2">
+          <article>
+            <h3>Top people by time</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Person</th>
+                    <th>Meetings</th>
+                    <th>Hours</th>
+                  </tr>
+                </thead>
+                <tbody id="people-breakdown"></tbody>
+              </table>
+            </div>
           </article>
-          <article class="card chart-card">
-            <h3>Value realization by initiative (%)</h3>
-            <canvas id="value-chart" width="560" height="260"></canvas>
+          <article>
+            <h3>Top topics by time</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Topic</th>
+                    <th>Meetings</th>
+                    <th>Hours</th>
+                  </tr>
+                </thead>
+                <tbody id="topic-breakdown"></tbody>
+              </table>
+            </div>
           </article>
         </div>
       </section>
 
-      <section class="chapter" id="chapter-competition" data-name="competition">
-        <h2>Chapter 4: Competitive positioning map</h2>
-        <div class="table-wrap card">
+      <section class="panel">
+        <h2>Meetings</h2>
+        <p id="meetings-count" class="meta"></p>
+        <div class="table-wrap">
           <table>
             <thead>
               <tr>
-                <th>Vendor</th>
-                <th>Score</th>
-                <th>Best for</th>
-                <th>Positioning narrative</th>
+                <th>Date</th>
+                <th>Meeting</th>
+                <th>People</th>
+                <th>Topics</th>
+                <th>Duration</th>
               </tr>
             </thead>
-            <tbody id="competition-body"></tbody>
+            <tbody id="meetings-body"></tbody>
           </table>
         </div>
       </section>
 
-      <section class="chapter" id="chapter-playbook" data-name="playbook">
-        <h2>Chapter 5: CMO activation playbook</h2>
-        <div class="split">
-          <article class="card">
-            <h3>Recommended campaign sequence</h3>
-            <ol id="playbook-list"></ol>
-          </article>
-          <article class="callout">
-            <h3>Executive summary output</h3>
-            <pre id="summary-output"></pre>
-          </article>
+      <section class="panel">
+        <h2>Attachments</h2>
+        <p id="attachments-count" class="meta"></p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>File</th>
+                <th>Meeting</th>
+                <th>Date</th>
+                <th>Keywords</th>
+              </tr>
+            </thead>
+            <tbody id="attachments-body"></tbody>
+          </table>
         </div>
       </section>
     </main>
-
-    <footer>
-      <div class="container">
-        <p>
-          Built as an interactive strategic story for manufacturing procurement
-          and competitive go-to-market planning.
-        </p>
-      </div>
-    </footer>
 
     <script src="app.js"></script>
   </body>
